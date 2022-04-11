@@ -12,7 +12,7 @@ module.exports = {
   mode: "production",
   target: "es5",
   entry: {
-    index: "./index.ts",
+    index: "./src/index.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
