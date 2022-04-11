@@ -14,4 +14,4 @@ jobs:
       run: |
         curl -sL https://sentry.io/get-cli/ | bash
         sentry-cli --auth-token '${{ secrets.SENTRY_AUTH_TOKEN }}' releases --org=dp201 --project=test-js files 0.0.1 upload-sourcemaps ./dist
-        sentry-cli --auth-token '${{ secrets.SENTRY_AUTH_TOKEN }}' finalize 0.0.1
+        sentry-cli --auth-token '${{ secrets.SENTRY_AUTH_TOKEN }}' releases finalize 0.0.1
