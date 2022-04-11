@@ -1,0 +1,16 @@
+name: "CI for uploading sourcemaps to sentry"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+    - id: checkout
+      uses: actions/checkout@v3
+    - id: upload
+      run: |
+        sentry-cli --auth-token '${{ secrets.SENTRY_AUTH_TOKEN }}' releases --org=dp201 --project=test-js files 0.0.1 upload-sourcemaps ./dist
+        sentry-cli --auth-token '${{ secrets.SENTRY_AUTH_TOKEN }}' finalize 0.0.1
