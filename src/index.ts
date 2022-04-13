@@ -13,10 +13,13 @@ const client = new Sentry.BrowserClient({
 });
 const hub = new Sentry.Hub(client);
 
-try {
-  // @ts-ignore
-  abacaxi();
-} catch (err) {
-  console.log("eyyyy");
-  hub.captureException(err);
-}
+const h1 = document.querySelector('h1');
+h1.addEventListener('click', () => {
+  try {
+    // @ts-ignore
+    abacaxi();
+  } catch (err) {
+    console.log("eyyyy");
+    hub.captureException(err);
+  }
+})
