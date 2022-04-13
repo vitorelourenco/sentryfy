@@ -2,9 +2,9 @@ import { BrowserTracing } from "@sentry/tracing";
 import { BrowserClient, Hub } from "@sentry/browser";
 
 const client = new BrowserClient({
-  dsn: "https://a842cbfdb2434556a09ea4efaede2b58@o1190326.ingest.sentry.io/6311376",
+  dsn: "https://d1648f12a72140d39bb0b0ebc11dbf15@o1199623.ingest.sentry.io/6323406",
   tracesSampleRate: 1.0,
-  integrations: [new BrowserTracing()],
+  integrations: (defaultIntegrations) => [...defaultIntegrations, new BrowserTracing()],
   release: '0.0.1',
   beforeSend(event, hint) {
     console.log('hint', hint);
